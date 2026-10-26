@@ -25,7 +25,6 @@
       t2-macbook = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          nixos-hardware.nixosModules.apple
           nixos-hardware.nixosModules.apple-t2
           ./configuration.nix
           ./desktop.nix
@@ -37,7 +36,6 @@
       t2-macbook-headless = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          nixos-hardware.nixosModules.apple
           nixos-hardware.nixosModules.apple-t2
           ./configuration.nix
           ./hardware-configuration.nix
