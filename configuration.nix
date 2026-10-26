@@ -23,14 +23,12 @@
   # systemd-boot on the existing EFI System Partition (dual boot with macOS)
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.systemd-boot.configurationLimit = 5;
 
   # ---- T2 Mac hardware (module imported in flake.nix) ----
   hardware.apple-t2.firmware.enable = true; # Broadcom Wi-Fi / Bluetooth firmware
+  nixpkgs.config.allowUnfree = true;
   hardware.apple-t2.enableIGPU = true;      # prefer Intel iGPU over the AMD dGPU (saves power)
-
-  # Broadcom Wi-Fi driver (T2 uses a BCM4364)
-  boot.extraModulePackages = [ config.boot.kernelPackages.broadcom_sta ];
-  boot.kernelModules = [ "wl" ];
 
   # ---- Networking ----
   networking.hostName = "t2-macbook";
