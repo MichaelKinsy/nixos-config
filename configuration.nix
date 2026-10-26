@@ -4,6 +4,21 @@
 { config, pkgs, ... }:
 
 {
+  # ---- Nix binary caches (prebuilt T2 kernel/firmware) ----
+  nix.settings = {
+    substituters = [
+      "https://cache.nixos.org"
+      "https://t2linux.cachix.org"
+      "https://cache.soopy.moe"
+    ];
+    trusted-public-keys = [
+      "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+      "t2linux.cachix.org-1:P733c5Gt1qTcxsm+Bae0renWnT8OLs0u9+yfaK2Bejw="
+      "cache.soopy.moe-1:0RZVsQeR+GOh0VQI9rvnHz55nVXkFardDqfm4+afjPo="
+    ];
+    experimental-features = [ "nix-command" "flakes" ];
+  };
+
   # ---- Boot ----
   # systemd-boot on the existing EFI System Partition (dual boot with macOS)
   boot.loader.systemd-boot.enable = true;
