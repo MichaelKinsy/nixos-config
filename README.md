@@ -25,6 +25,6 @@ sudo nixos-rebuild switch --flake .#t2-macbook
 
 ## Notes
 
-- Wi-Fi needs `hardware.apple-t2.firmware.enable = true` + the `broadcom_sta` (`wl`) module.
+- Wi-Fi needs `hardware.apple-t2.firmware.enable = true`.
 - For a headless box, SSH is enabled with the key in `configuration.nix`.
 - Keep macOS around (dual boot) for firmware updates and the Startup Security Utility.
