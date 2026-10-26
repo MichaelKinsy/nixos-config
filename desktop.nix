@@ -20,7 +20,7 @@
   environment.systemPackages = with pkgs; [
     kitty # terminal
     waybar # status bar
-    rofi-wayland # app launcher
+    rofi # app launcher
     mako # notifications
     swww # wallpaper daemon
     hyprlock # lock screen
